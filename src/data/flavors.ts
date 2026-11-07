@@ -31,7 +31,7 @@ export const FLAVORS: Flavor[] = [
     tagline: "Ягодный профиль без сладости.",
     accent: "#8B3A4A",
     packLine: "10mg D9 per strip · 30 strips",
-    packImage: "/calyx-pack-berry.png",
+    packImage: "/calyx-pack-berry-v2.png",
     blurb:
       "CALYX Лесные ягоды — мягкий ягодный вкус в формате оральных стрипов Delta-9. Профиль взрослый и сдержанный: намёк на лесные ягоды без сиропа и без десертной тяжести. Тот же контролируемый опыт — 10 мг D9 на стрип, 30 стрипов — в пауче, который держит medical-retail линию бренда.",
   },
@@ -41,7 +41,7 @@ export const FLAVORS: Flavor[] = [
     tagline: "Глубина какао, без лишнего.",
     accent: "#6B4E3D",
     packLine: "10mg D9 per strip · 30 strips",
-    packImage: "/calyx-pack-chocolate.png",
+    packImage: "/calyx-pack-chocolate-v2.png",
     blurb:
       "CALYX Тёмный шоколад — оральные стрипы с глубоким какао-профилем для вечернего или «тишины» режима. Вкус взрослый, ближе к тёмному шоколаду, чем к молочному батончику: плотный, короткий, без сладости. Формула та же — 10 мг D9 на стрип, 30 стрипов — только другой характер на языке.",
   },
