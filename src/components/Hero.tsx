@@ -82,12 +82,12 @@ export function Hero() {
         >
           <div className="relative -mx-5 aspect-[4/5] max-h-[70svh] w-[calc(100%+2.5rem)] sm:mx-0 sm:aspect-[5/4] sm:max-h-none sm:w-full lg:aspect-[4/3]">
             <Image
-              src="/calyx-pouch.jpg"
+              src="/calyx-pack-transparent.png"
               alt="Белый пауч CALYX Delta-9 THC strips, 10mg D9"
               fill
               priority
               sizes="(max-width: 1024px) 100vw, 58vw"
-              className="object-cover object-[center_35%] sm:object-contain sm:object-center"
+              className="object-contain object-center drop-shadow-[0_24px_48px_rgba(28,42,34,0.18)]"
             />
           </div>
         </div>
