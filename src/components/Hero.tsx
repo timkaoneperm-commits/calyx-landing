@@ -87,7 +87,7 @@ export function Hero() {
               fill
               priority
               sizes="(max-width: 1024px) 100vw, 58vw"
-              className="object-contain object-center drop-shadow-[0_24px_48px_rgba(28,42,34,0.18)]"
+              className="object-contain object-center drop-shadow-[0_18px_36px_rgba(28,42,34,0.12)]"
             />
           </div>
         </div>
