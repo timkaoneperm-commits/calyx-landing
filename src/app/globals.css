@@ -1,0 +1,140 @@
+@import "tailwindcss";
+
+:root {
+  /* Brand palette — white pouch, black type, forest green, red dosage */
+  --calyx-white: #f7f6f3;
+  --calyx-paper: #ebe8e2;
+  --calyx-ink: #0e0e0e;
+  --calyx-muted: #5c5a56;
+  --calyx-forest: #2f5d45;
+  --calyx-forest-deep: #1e3d2d;
+  --calyx-dose: #c62828;
+  --calyx-line: rgba(14, 14, 14, 0.12);
+
+  --background: var(--calyx-white);
+  --foreground: var(--calyx-ink);
+
+  --font-display: var(--font-unbounded);
+  --font-body: var(--font-manrope);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-calyx-white: var(--calyx-white);
+  --color-calyx-paper: var(--calyx-paper);
+  --color-calyx-ink: var(--calyx-ink);
+  --color-calyx-muted: var(--calyx-muted);
+  --color-calyx-forest: var(--calyx-forest);
+  --color-calyx-forest-deep: var(--calyx-forest-deep);
+  --color-calyx-dose: var(--calyx-dose);
+  --color-calyx-line: var(--calyx-line);
+  --font-sans: var(--font-body);
+  --font-display: var(--font-display);
+}
+
+@keyframes calyx-rise {
+  from {
+    opacity: 0;
+    transform: translateY(1.25rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes calyx-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes calyx-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(1.04);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes calyx-drift {
+  0%,
+  100% {
+    background-position: 0% 40%;
+  }
+  50% {
+    background-position: 100% 60%;
+  }
+}
+
+.animate-calyx-rise {
+  animation: calyx-rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-calyx-fade {
+  animation: calyx-fade 1.1s ease both;
+}
+
+.animate-calyx-scale {
+  animation: calyx-scale-in 1.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.calyx-atmosphere {
+  background-color: var(--calyx-white);
+  background-image:
+    radial-gradient(
+      ellipse 80% 55% at 70% 20%,
+      rgba(47, 93, 69, 0.14),
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse 60% 50% at 15% 85%,
+      rgba(198, 40, 40, 0.06),
+      transparent 55%
+    ),
+    linear-gradient(
+      135deg,
+      transparent 0%,
+      transparent 46%,
+      rgba(47, 93, 69, 0.05) 46%,
+      rgba(47, 93, 69, 0.05) 50%,
+      transparent 50%
+    );
+  background-size: 100% 100%, 100% 100%, 48px 48px;
+  animation: calyx-drift 28s ease-in-out infinite;
+}
+
+.calyx-diagonal {
+  background-image: repeating-linear-gradient(
+    -42deg,
+    var(--calyx-forest) 0 10px,
+    transparent 10px 22px
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-calyx-rise,
+  .animate-calyx-fade,
+  .animate-calyx-scale,
+  .calyx-atmosphere {
+    animation: none !important;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body), ui-sans-serif, sans-serif;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--calyx-forest) 28%, white);
+  color: var(--calyx-ink);
+}
