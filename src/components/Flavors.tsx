@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { FLAVORS } from "@/data/flavors";
 
@@ -13,14 +14,24 @@ export function Flavors() {
         </h2>
         <p className="mt-4 max-w-lg text-base leading-relaxed text-calyx-muted">
           Единый каркас бренда: CALYX, 10&nbsp;мг D9, крепость strong, 21+.
-          Различаются имя вкуса и цветовой акцент на пауче.
+          Различаются имя вкуса, акцент на пауче и цветок рядом с упаковкой.
         </p>
 
-        <ul className="mt-14 grid gap-12 md:grid-cols-3 md:gap-8">
+        <ul className="mt-14 grid gap-14 md:grid-cols-3 md:gap-8">
           {FLAVORS.map((flavor, index) => (
-            <li key={flavor.id} className="group">
+            <li key={flavor.id} className="group flex flex-col">
+              <div className="relative mx-auto aspect-[3/4] w-full max-w-[280px] transition duration-500 group-hover:-translate-y-1">
+                <Image
+                  src={flavor.packImage}
+                  alt={`Пауч CALYX ${flavor.name}`}
+                  fill
+                  sizes="(max-width: 768px) 70vw, 280px"
+                  className="object-contain object-bottom drop-shadow-[0_18px_32px_rgba(28,42,34,0.14)]"
+                />
+              </div>
+
               <div
-                className="h-1.5 w-16 transition-all duration-500 group-hover:w-24"
+                className="mt-8 h-1.5 w-16 transition-all duration-500 group-hover:w-24"
                 style={{ backgroundColor: flavor.accent }}
                 aria-hidden
               />
@@ -33,7 +44,7 @@ export function Flavors() {
               <p className="mt-2 text-sm font-medium text-calyx-ink/80">
                 {flavor.tagline}
               </p>
-              <p className="mt-4 text-sm leading-relaxed text-calyx-muted">
+              <p className="mt-4 flex-1 text-sm leading-relaxed text-calyx-muted">
                 {flavor.blurb}
               </p>
               <p className="mt-5 text-[11px] font-semibold uppercase tracking-[0.14em] text-calyx-ink/55">

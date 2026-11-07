@@ -2,6 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { FLAVORS, PRODUCT } from "@/data/flavors";
 
+const HERO_PACKS = [
+  { flavor: FLAVORS[1], className: "left-[2%] top-[12%] z-[1] w-[46%] rotate-[-7deg] opacity-90" },
+  { flavor: FLAVORS[0], className: "left-1/2 top-[4%] z-[3] w-[52%] -translate-x-1/2" },
+  { flavor: FLAVORS[2], className: "right-[2%] top-[14%] z-[2] w-[46%] rotate-[7deg] opacity-90" },
+] as const;
+
 export function Hero() {
   return (
     <section className="relative min-h-[100svh] overflow-hidden calyx-atmosphere">
@@ -80,15 +86,23 @@ export function Hero() {
           className="animate-calyx-scale relative lg:col-span-7"
           style={{ animationDelay: "200ms" }}
         >
-          <div className="relative -mx-5 aspect-[4/5] max-h-[70svh] w-[calc(100%+2.5rem)] sm:mx-0 sm:aspect-[5/4] sm:max-h-none sm:w-full lg:aspect-[4/3]">
-            <Image
-              src="/calyx-pack-v2.png"
-              alt="Белый пауч CALYX Delta-9 THC strips, 10mg D9"
-              fill
-              priority
-              sizes="(max-width: 1024px) 100vw, 58vw"
-              className="object-contain object-center drop-shadow-[0_18px_36px_rgba(28,42,34,0.12)]"
-            />
+          <div className="relative -mx-5 aspect-[4/5] max-h-[72svh] w-[calc(100%+2.5rem)] sm:mx-0 sm:aspect-[5/4] sm:max-h-none sm:w-full lg:aspect-[4/3]">
+            {HERO_PACKS.map(({ flavor, className }, i) => (
+              <div
+                key={flavor.id}
+                className={`absolute aspect-[3/4] ${className}`}
+                style={{ animationDelay: `${180 + i * 70}ms` }}
+              >
+                <Image
+                  src={flavor.packImage}
+                  alt={`Пауч CALYX ${flavor.name}`}
+                  fill
+                  priority={flavor.id === "mint"}
+                  sizes="(max-width: 1024px) 45vw, 28vw"
+                  className="object-contain object-bottom drop-shadow-[0_18px_36px_rgba(28,42,34,0.14)]"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </div>
