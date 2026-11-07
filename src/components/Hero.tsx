@@ -82,7 +82,7 @@ export function Hero() {
         >
           <div className="relative -mx-5 aspect-[4/5] max-h-[70svh] w-[calc(100%+2.5rem)] sm:mx-0 sm:aspect-[5/4] sm:max-h-none sm:w-full lg:aspect-[4/3]">
             <Image
-              src="/calyx-pack-transparent.png"
+              src="/calyx-pack-v2.png"
               alt="Белый пауч CALYX Delta-9 THC strips, 10mg D9"
               fill
               priority
